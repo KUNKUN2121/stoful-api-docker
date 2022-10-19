@@ -14,3 +14,15 @@ services:
     build: ./php
     volumes:
       - ./src:/var/www/
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=localhost #mysqlサービス名を指定
+      - PMA_USER=root
+      - PMA_PASSWORD=stoful2022
+    ports:
+      - 4040:80
+    volumes:
+      - ./phpmyadmin/sessions:/sessions

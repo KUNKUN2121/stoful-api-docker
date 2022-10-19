@@ -1,6 +1,7 @@
 <?php
 try {
-    $dsn = 'mysql:dbname=store;host=store-project.f5.si;charset=utf8mb4';
+    // $dsn = 'mysql:dbname=store;host=store-project.f5.si;charset=utf8mb4';
+    $dsn = 'mysql:dbname=store;host=192.168.152.67;charset=utf8mb4';
     $username ='store';
     $password = 'vGciFPmVGTdd86R682U75MfNdzAQMg';
 
@@ -10,5 +11,5 @@ try {
     echo 'DB接続エラー!!!!: ' . $e->getMessage();
     
 }
-$ServerURL = 'https://store-project.f5.si/';
+$ServerURL = 'https://api-stoful.meiden-travel.jp/';
 ?>

@@ -19,9 +19,9 @@ services:
     image: phpmyadmin/phpmyadmin
     environment:
       - PMA_ARBITRARY=1
-      - PMA_HOST=192.168.152.67 #mysqlサービス名を指定
-      - PMA_USER=store
-      - PMA_PASSWORD=vGciFPmVGTdd86R682U75MfNdzAQMg
+      # - PMA_HOST=192.168.152.67 #mysqlサービス名を指定
+      # - PMA_USER=store
+      # - PMA_PASSWORD=vGciFPmVGTdd86R682U75MfNdzAQMg
     ports:
       - 4040:80
     volumes:

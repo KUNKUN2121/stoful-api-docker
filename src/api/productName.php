@@ -5,7 +5,7 @@ if($barcode==NULL){
     echo('productName.php?barcode=222224');
     return;
 }
-$img = 'https://store-project.f5.si/img/';
+$img = $ServerURL.'/img/';
     // itemname 取得
         try{
             //$barcode = 4549131970258;

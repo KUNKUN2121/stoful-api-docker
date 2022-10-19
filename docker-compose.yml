@@ -20,8 +20,8 @@ services:
     environment:
       - PMA_ARBITRARY=1
       - PMA_HOST=localhost #mysqlサービス名を指定
-      - PMA_USER=root
-      - PMA_PASSWORD=stoful2022
+      - PMA_USER=store
+      - PMA_PASSWORD=vGciFPmVGTdd86R682U75MfNdzAQMg
     ports:
       - 4040:80
     volumes:

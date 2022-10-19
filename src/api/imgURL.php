@@ -24,7 +24,7 @@ $barcode = $_GET['barcode'];
                     $filename = $barcode.'.'.$extension;
                     // $extension = 'PNG';
                     //echo($filename);
-                    $name = '../../img/'.$filename.'';
+                    $name = '../img/'.$filename.'';
                     $fp = fopen($name, 'rb');
             
                     // send the right headers

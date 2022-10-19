@@ -1,0 +1,16 @@
+version: '3' 
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - "9000:80"
+    depends_on:
+      - php
+    volumes:
+      - ./web/default.conf:/etc/nginx/conf.d/default.conf
+      - ./src:/var/www/
+
+  php:
+    build: ./php
+    volumes:
+      - ./src:/var/www/

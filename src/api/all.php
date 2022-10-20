@@ -36,7 +36,8 @@ try{
 
 
 //jsonとして出力
-echo json_encode($userData);
 header('Content-Type: application/json');
+echo json_encode($userData);
+
 /////////////デバッグ用日本語で表示
 // echo json_encode($person, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);

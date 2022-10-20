@@ -38,7 +38,7 @@ if(isset($_POST["image"])){
     // fclose($filehandler); 
     $image = file_get_contents($_POST["image"]);
 
-    $save_path = "../../img/".$barnum.".jpg" ;
+    $save_path = "../img/".$barnum.".jpg" ;
 
     file_put_contents($save_path, $image);
 

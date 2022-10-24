@@ -10,12 +10,12 @@ $return["quantity"] = $_POST["quantity"];
 
 $barnum = $_POST["barnum"];
 $quantity = $_POST["quantity"];
-if($barcode==null || $quantity==null){
-    $return["error"] = true;
-    $return["msg"] = "DontSet";
-    echo json_encode($return);
-    return;
-}
+// if($barcode==null || $quantity==null){
+//     $return["error"] = true;
+//     $return["msg"] = "DontSet";
+//     echo json_encode($return);
+//     return;
+// }
 
 //array to return
 

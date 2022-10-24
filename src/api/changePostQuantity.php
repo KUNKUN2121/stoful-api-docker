@@ -10,7 +10,9 @@ $return["msg"] = "";
 
 $barnum = $_POST["barnum"];
 $quantity = $_POST["quantity"];
-
+if($barcode==null || $quantity==null){
+    return;
+}
 
 //array to return
 

@@ -1,6 +1,6 @@
 <?php
 require_once "database.php";
-$url = $ServerURL.'/img/';
+$url = $ServerURL.'img/';
 // mb_language("uni");
 // mb_internal_encoding("utf-8"); //内部文字コードを変更
 // mb_http_input("auto");

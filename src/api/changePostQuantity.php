@@ -41,7 +41,7 @@ if($_POST["moreinfo"]==0){
         $itemname = $_POST["itemname"];
         $price = $_POST["price"];
         $category = $_POST["category"];
-        $imgURL = $_POST["imgURL"];
+        $imgURL = $_POST["image"];
         $return["itemname"] = $itemname;
         $return["price"] = $price;
         $return["category"] = $category;

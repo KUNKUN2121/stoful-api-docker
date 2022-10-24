@@ -1,8 +1,6 @@
 <?php
 header('Content-Type: application/json');
 require_once "database.php";
-$barcode =null;
-$quantity =null;
 
 $return["error"] = false;
 $return["msg"] = "";

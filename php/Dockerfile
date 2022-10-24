@@ -1,4 +1,8 @@
 FROM php:7.4.8-fpm
+COPY php.ini /usr/local/etc/php/
+# COPY settings/php.ini /usr/local/etc/php/conf.d/php.ini
+# RUN cp /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini
+
 RUN apt-get update \ 
     && docker-php-ext-install pdo_mysql \
     && apt-get install libmagickwand-dev -y --no-install-recommends \

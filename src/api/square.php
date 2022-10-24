@@ -40,7 +40,7 @@ if(isset($_POST["image"])){
     // echo 'original image size : ' . $org_width . ' x ' . $org_height ."<br>\n";
     // echo 'original image size : ' . $width . ' x ' . $height ."<br>\n";
     $return["error"] = false;
-    $return["msg"] = "https://store-project.f5.si/database/api/temp/".$random;
+    $return["msg"] = "https://api-stoful.meiden-travel.jp/api/temp/".$random;
 }
 header('Content-Type: application/json');
 // tell browser that its a json data

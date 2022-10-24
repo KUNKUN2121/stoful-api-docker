@@ -1,4 +1,5 @@
 <?php
+header('Content-Type: application/json');
 require_once "database.php";
 
 
@@ -27,7 +28,7 @@ $quantity = $_POST["quantity"];
         $return["msg"] =   $e->getMessage();
         }
 
-header('Content-Type: application/json');
+
 // tell browser that its a json data
 echo json_encode($return);
 //converting array to JSON string

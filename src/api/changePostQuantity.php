@@ -1,6 +1,8 @@
 <?php
-require_once "database.php";
 header('Content-Type: application/json');
+require_once "database.php";
+$barcode =null;
+$quantity =null;
 
 $return["error"] = false;
 $return["msg"] = "";
@@ -10,6 +12,15 @@ $return["quantity"] = $_POST["quantity"];
 
 $barnum = $_POST["barnum"];
 $quantity = $_POST["quantity"];
+if($barcode==null || $quantity==null){
+    $return["error"] = true;
+    $return["msg"] = "DontSet";
+    echo json_encode($return);
+    return;
+}
+
+//array to return
+
 
         try{
         // $stmt = $pdo->prepare('INSERT INTO product_contents (itemname, barnum, extension, quantity, category, price, created_at, updated_at) VALUES(:itemname, :barnum, :extension, :quantity, :category, :price, NOW(), NOW() )');

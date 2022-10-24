@@ -5,7 +5,7 @@ if($barcode==NULL){
     echo('productName.php?barcode=222224');
     return;
 }
-$img = $ServerURL.'/img/';
+$img = $ServerURL.'img/';
     // itemname 取得
         try{
             //$barcode = 4549131970258;

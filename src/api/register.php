@@ -23,19 +23,6 @@ $extension = 'jpg';
 
 //array to return
 if(isset($_POST["image"])){
-    // $base64_string = $_POST["image"];
-    // $outputfile = "../../img/".$barnum.".jpg" ;
-    // //save as image.jpg in uploads/ folder
-
-    // $filehandler = fopen($outputfile, 'wb' ); 
-    // //file open with "w" mode treat as text file
-    // //file open with "wb" mode treat as binary file
-    
-    // fwrite($filehandler, base64_decode($base64_string));
-    // // we could add validation here with ensuring count($data)>1
-
-    // // clean up the file resource
-    // fclose($filehandler); 
     $image = file_get_contents($_POST["image"]);
 
     $save_path = "../img/".$barnum.".jpg" ;

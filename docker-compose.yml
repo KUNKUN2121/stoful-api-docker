@@ -26,3 +26,5 @@ services:
       - 4040:80
     volumes:
       - ./phpmyadmin/sessions:/sessions
+# 自動起動
+restart: always

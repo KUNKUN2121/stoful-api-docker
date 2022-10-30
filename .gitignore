@@ -1,2 +1,4 @@
-src/img/*
+src/api/database.php/
+src/api/img/*
+src/api/temp/*
 .DS_Store

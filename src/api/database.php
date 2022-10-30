@@ -12,4 +12,5 @@ try {
     
 }
 $ServerURL = 'https://api-stoful.meiden-travel.jp/';
+// $ServerURL = 'http://192.168.0.203:9000/';
 ?>

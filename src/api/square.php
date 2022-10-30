@@ -1,5 +1,5 @@
 <?php
-
+require_once "database.php";
 $return["error"] = true;
 $return["msg"] = "Noting";
 
@@ -24,8 +24,8 @@ if(isset($_POST["image"])){
     $size = $org_width;
     if ( $org_width > $org_height){ $size = $org_height; }
 
-    $width  = $size;
-    $height = $size;
+    $width  = 500;
+    $height = 500;
     // readImageにBloobにするとパスではなく直で読み込む
     $im->readImageBlob($decode_data);
     $im->autoOrient();
@@ -40,7 +40,7 @@ if(isset($_POST["image"])){
     // echo 'original image size : ' . $org_width . ' x ' . $org_height ."<br>\n";
     // echo 'original image size : ' . $width . ' x ' . $height ."<br>\n";
     $return["error"] = false;
-    $return["msg"] = "https://api-stoful.meiden-travel.jp/api/temp/".$random;
+    $return["msg"] = $ServerURL."api/temp/".$random;
 }
 header('Content-Type: application/json');
 // tell browser that its a json data

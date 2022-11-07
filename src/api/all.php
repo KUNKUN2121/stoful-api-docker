@@ -1,12 +1,21 @@
 <?php
 require_once "database.php";
 $url = $ServerURL.'img/';
-// mb_language("uni");
-// mb_internal_encoding("utf-8"); //内部文字コードを変更
-// mb_http_input("auto");
+$order = $_GET['order'];
+
+// カテゴリー設定がある場合
+$category = $_GET['category'];
+if($category>=1 && $category <=5){
+    $sql = "SELECT * FROM product_contents WHERE category = :category ORDER BY $order" ;
+}else{
+    $sql = "SELECT * FROM product_contents ORDER BY $order";
+}
 
 try{
-    $stmt = $pdo->prepare("SELECT * FROM product_contents");
+    $stmt = $pdo->prepare($sql);
+    // 代入
+    $stmt->bindValue(':category', $category);
+    // $stmt->bindValue(':order', $order);
 
     // SQL実行
     $stmt->execute();

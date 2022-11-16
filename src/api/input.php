@@ -20,9 +20,10 @@
         $quantity = $data[$i][1];
 
         try{
-            $stmt = $pdo->prepare('UPDATE product_contents SET quantity = quantity + :quantity WHERE barnum = :barnum');
+            $stmt = $pdo->prepare('UPDATE product_contents SET quantity = quantity + :quantity , updated_at = NOW() WHERE barnum = :barnum');
             $stmt->bindValue(':barnum', $barcode);
             $stmt->bindValue(':quantity', $quantity);
+            // $stmt->bindValue(':updated_at', $NOW);
             //実行
             $res = $stmt->execute();
             $count=$stmt->rowCount();

@@ -11,6 +11,8 @@ if($category>=1 && $category <=5){
     $sql = "SELECT * FROM product_contents ORDER BY $order";
 }
 
+// $sql = "SELECT * FROM product_contents ORDER BY $order WHERE * LIKE $search;
+
 try{
     $stmt = $pdo->prepare($sql);
     // 代入

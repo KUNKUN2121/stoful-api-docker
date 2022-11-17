@@ -2,20 +2,24 @@
 require_once "database.php";
 $url = $ServerURL.'img/';
 $order = $_GET['order'];
+$search = $_GET['search'];
+
+// serachある場合
+
 
 // カテゴリー設定がある場合
 $category = $_GET['category'];
 if($category>=1 && $category <=5){
-    $sql = "SELECT * FROM product_contents WHERE category = :category ORDER BY $order" ;
+    $sql = "SELECT * FROM product_contents WHERE (category = :category AND (itemname LIKE :search OR barnum LIKE :search)) ORDER BY itemname";
 }else{
-    $sql = "SELECT * FROM product_contents ORDER BY $order";
+    $sql = "SELECT * FROM product_contents WHERE (itemname LIKE :search OR barnum LIKE :search) ORDER BY itemname";
 }
 
-// $sql = "SELECT * FROM product_contents ORDER BY $order WHERE * LIKE $search;
 
 try{
     $stmt = $pdo->prepare($sql);
     // 代入
+    $stmt->bindValue(":search", '%'. $search .'%', PDO::PARAM_STR);
     $stmt->bindValue(':category', $category);
     // $stmt->bindValue(':order', $order);
 

@@ -43,18 +43,24 @@ if($_POST["moreinfo"]==0){
         $price = $_POST["price"];
         $category = $_POST["category"];
         $imgURL = $_POST["image"];
-        $return["itemname"] = $itemname;
-        $return["price"] = $price;
-        $return["category"] = $category;
-        $return["imgURL"] = $imgURL;
+        // $return["itemname"] = $itemname;
+        // $return["price"] = $price;
+        // $return["category"] = $category;
+        // $return["imgURL"] = $imgURL;
         $extension = 'jpg';
 
         if(isset($_POST["image"])){
-            $image = file_get_contents($_POST["image"]);
-        
-            $save_path = "../img/".$barnum.".jpg" ;
-        
-            file_put_contents($save_path, $image);
+            try {
+                $image = file_get_contents($_POST["image"]);
+            
+                $save_path = "../img/".$barnum.".jpg" ;
+                
+                file_put_contents($save_path, $image);
+                $return['imgerror'] =false;
+            } catch (\Throwable $th) {
+                $return['imgerror'] =true;
+            }
+
         }
         try{
             // $stmt = $pdo->prepare('INSERT INTO product_contents (itemname, barnum, extension, quantity, category, price, created_at, updated_at) VALUES(:itemname, :barnum, :extension, :quantity, :category, :price, NOW(), NOW() )');

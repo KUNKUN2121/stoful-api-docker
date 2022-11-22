@@ -25,7 +25,7 @@ if($_POST["delete"] == true){
         $stmt->bindValue(':quantity', $quantity);
         // SQL実行
         $stmt->execute();
-        echo('データベース追加しました。');
+        echo('delteOKOKOKO');
     } catch (PDOException $e) {
         // 接続できなかったらエラー表示
         echo 'error: ' . $e->getMessage();
@@ -74,6 +74,7 @@ if($_POST["moreinfo"]==0){
                 $save_path = "../img/".$barnum.".jpg" ;
                 
                 file_put_contents($save_path, $image);
+                chmod($save_path, 777);
                 $return['imgerror'] =false;
             } catch (\Throwable $th) {
                 $return['imgerror'] =true;

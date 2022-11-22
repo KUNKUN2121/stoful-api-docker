@@ -1,21 +1,39 @@
 <?php
+// 初期値設定
 header('Content-Type: application/json');
 require_once "database.php";
 
-// 初期値設定
 $return["error"] = false;
 $return["moreinfo"] = false;
 $return["msg"] = "";
+////////////////
 
 // POSTの値を取得
 $barnum = $_POST["barnum"];
 $quantity = $_POST["quantity"];
 
-//確認用
-$return["barnum"] = $barnum;
-$return["quantity"] = $quantity;
 
-// moreinfo 0の場合
+// 商品削除処理
+if($_POST["delete"] == true){
+    $return["moreinfo"] = false;
+    $return["delte"] = true;
+
+    try{
+        $stmt = $pdo->prepare('DELETE FROM product_contents WHERE barnum = :barnum');
+        // 値をセット
+        $stmt->bindValue(':barnum', $barnum);
+        $stmt->bindValue(':quantity', $quantity);
+        // SQL実行
+        $stmt->execute();
+        echo('データベース追加しました。');
+    } catch (PDOException $e) {
+        // 接続できなかったらエラー表示
+        echo 'error: ' . $e->getMessage();
+        $return["msg"] =   $e->getMessage();
+        }
+}
+
+// moreinfo なしの場合
 if($_POST["moreinfo"]==0){
     $return["moreinfo"] = false;
         try{

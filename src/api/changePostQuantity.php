@@ -37,6 +37,7 @@ if($_POST["moreinfo"]==0){
         $return["msg"] =   $e->getMessage();
         }
     }else{
+        // moreinfo 詳細設定
         $return["moreinfo"] = true;
         $itemname = $_POST["itemname"];
         $price = $_POST["price"];
@@ -67,13 +68,14 @@ if($_POST["moreinfo"]==0){
         
             // SQL実行
             $stmt->execute();
-            echo('データベース追加しました。');
+            echo('DataBaseAdd');
             $return["msg"] = 'データベース追加しました。';
             //echo $barcode;
             //echo $content;
         } catch (PDOException $e) {
             // 接続できなかったらエラー表示
-            echo 'error: ' . $e->getMessage();
+            // echo 'error: ' . $e->getMessage();
+            $return["error"] = true;
             $return["msg"] =   $e->getMessage();
             }
 

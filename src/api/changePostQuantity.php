@@ -26,7 +26,6 @@ if($_POST["delete"] == true){
         $stmt = $pdo->prepare('DELETE FROM product_contents WHERE barnum = :barnum');
         // 値をセット
         $stmt->bindValue(':barnum', $barnum);
-        $stmt->bindValue(':quantity', $quantity);
         // SQL実行
         $stmt->execute();
         echo('delteOKOKOKO');

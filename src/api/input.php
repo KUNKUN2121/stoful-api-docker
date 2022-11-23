@@ -2,6 +2,10 @@
     //データベース接続
     require_once "database.php";
 
+
+    $date = new DateTime();
+    $date = $date->format('Y-m-d H:i:s');
+
     // json受け取り
     try {
         $json = file_get_contents('php://input');
@@ -20,9 +24,10 @@
         $quantity = $data[$i][1];
 
         try{
-            $stmt = $pdo->prepare('UPDATE product_contents SET quantity = quantity + :quantity , updated_at = NOW() WHERE barnum = :barnum');
+            $stmt = $pdo->prepare('UPDATE product_contents SET quantity = quantity + :quantity , updated_at = :updated_at WHERE barnum = :barnum');
             $stmt->bindValue(':barnum', $barcode);
             $stmt->bindValue(':quantity', $quantity);
+            $stmt->bindValue(':updated_at', $date);
             // $stmt->bindValue(':updated_at', $NOW);
             //実行
             $res = $stmt->execute();

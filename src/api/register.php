@@ -5,6 +5,9 @@ require_once "database.php";
 $return["error"] = false;
 $return["msg"] = "";
 
+$date = new DateTime();
+$date = $date->format('Y-m-d H:i:s');
+
 
 // $return["itemname"] = $_POST["itemname"];
 // $return["barnum"] = $_POST["barnum"];
@@ -31,7 +34,7 @@ if(isset($_POST["image"])){
 
 
         try{
-        $stmt = $pdo->prepare('INSERT INTO product_contents (itemname, barnum, extension, quantity, category, price, created_at, updated_at) VALUES(:itemname, :barnum, :extension, :quantity, :category, :price, NOW(), NOW() )');
+        $stmt = $pdo->prepare('INSERT INTO product_contents (itemname, barnum, extension, quantity, category, price, created_at, updated_at) VALUES(:itemname, :barnum, :extension, :quantity, :category, :price, :created_at, :updated_at )');
 
         // 値をセット
         $stmt->bindValue(':itemname', $itemname);
@@ -40,6 +43,8 @@ if(isset($_POST["image"])){
         $stmt->bindValue(':quantity', $quantity);
         $stmt->bindValue(':category', $category);
         $stmt->bindValue(':price', $price);
+        $stmt->bindValue(':created_at', $date);
+        $stmt->bindValue(':updated_at', $date);
         // $stmt->bindValue(':created_at', '22');
     
         // SQL実行

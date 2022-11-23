@@ -6,6 +6,10 @@ require_once "database.php";
 $return["error"] = false;
 $return["moreinfo"] = false;
 $return["msg"] = "";
+
+$date = new DateTime();
+$date = $date->format('Y-m-d H:i:s');
+
 ////////////////
 
 // POSTの値を取得
@@ -37,18 +41,12 @@ if($_POST["delete"] == true){
 if($_POST["moreinfo"]==0){
     $return["moreinfo"] = false;
         try{
-        // $stmt = $pdo->prepare('INSERT INTO product_contents (itemname, barnum, extension, quantity, category, price, created_at, updated_at) VALUES(:itemname, :barnum, :extension, :quantity, :category, :price, NOW(), NOW() )');
-        $stmt = $pdo->prepare('UPDATE product_contents SET quantity = :quantity WHERE barnum = :barnum');
-
-        // 値をセット
+        $stmt = $pdo->prepare('UPDATE product_contents SET quantity = :quantity, updated_at = :updated_at WHERE barnum = :barnum');
         $stmt->bindValue(':barnum', $barnum);
         $stmt->bindValue(':quantity', $quantity);
-    
-        // SQL実行
+        $stmt->bindValue(':updated_at', $date);
         $stmt->execute();
         echo('データベース追加しました。');
-        //echo $barcode;
-        //echo $content;
     } catch (PDOException $e) {
         // 接続できなかったらエラー表示
         echo 'error: ' . $e->getMessage();
@@ -61,10 +59,6 @@ if($_POST["moreinfo"]==0){
         $price = $_POST["price"];
         $category = $_POST["category"];
         $imgURL = $_POST["image"];
-        // $return["itemname"] = $itemname;
-        // $return["price"] = $price;
-        // $return["category"] = $category;
-        // $return["imgURL"] = $imgURL;
         $extension = 'jpg';
 
         if(isset($_POST["image"])){

@@ -1,7 +1,7 @@
 version: '3' 
 services:
   web:
-    image: nginx:latest
+    build: ./web
     ports:
       - "9000:80"
     depends_on:

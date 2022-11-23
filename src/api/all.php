@@ -10,9 +10,9 @@ $search = $_GET['search'];
 // カテゴリー設定がある場合
 $category = $_GET['category'];
 if($category>=1 && $category <=5){
-    $sql = "SELECT * FROM product_contents WHERE (category = :category AND (itemname LIKE :search OR barnum LIKE :search)) ORDER BY itemname";
+    $sql = "SELECT * FROM product_contents WHERE (category = :category AND (itemname LIKE :search OR barnum LIKE :search)) ORDER BY $order";
 }else{
-    $sql = "SELECT * FROM product_contents WHERE (itemname LIKE :search OR barnum LIKE :search) ORDER BY itemname";
+    $sql = "SELECT * FROM product_contents WHERE (itemname LIKE :search OR barnum LIKE :search) ORDER BY $order";
 }
 
 

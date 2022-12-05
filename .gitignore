@@ -2,3 +2,4 @@ src/api/database.php/
 src/api/img/*
 src/api/temp/*
 .DS_Store
+src/api/database.php
